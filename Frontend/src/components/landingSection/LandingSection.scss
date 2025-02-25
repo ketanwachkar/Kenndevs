@@ -1,0 +1,45 @@
+.landing-main-container {
+    width: auto;
+    height: 100%;
+    max-width: 1540px;
+    padding: 0 1rem;
+    margin: 67px auto;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    .landing-left-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 676px;
+        .tag-one {
+            color: #38b7fd;
+            font-weight: 400;
+            font-size: 3.333vw;
+        }
+        .tag-two {
+            color: #000;
+            font-weight: 400;
+            font-size: 3.333vw;
+        }
+        .tagline-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            margin-top: 20px;
+            font-size: 1.25vw;
+        }
+        .contactus-content {
+            button {
+                background: linear-gradient(90deg, #5E616C 0%, #735D58 52.5%, #5E616C 100%);
+                color: #FFF;
+                font-family: Inter;
+                font-weight: 700;
+                font-size: 24px;
+                border-radius: 16px;
+                padding: 14px;
+                margin-top: 1rem;
+
+            }
+        }
+    }
+}
