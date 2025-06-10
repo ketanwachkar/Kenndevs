@@ -1,13 +1,20 @@
 
-"use client"; 
-
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import ServiceCard from '@/components/services/ServiceCard';
 import FadeIn from '@/components/shared/FadeIn';
-import type { Service3DIconType } from '@/components/services/Service3DIcon'; // Import the 3D icon type
+import { 
+  Code, Smartphone, Cloud, Brain, PenTool, 
+  Database, ShieldCheck, BarChartBig, type LucideIcon 
+} from 'lucide-react'; // Import Lucide icons and LucideIcon type
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Services',
+  description: 'Explore the wide range of software development services offered by NebulaCode, including web development, mobile apps, cloud solutions, AI/ML, UI/UX design, and more.',
+};
 
 interface Service {
-  iconType: Service3DIconType; // Use the 3D icon type
+  icon: LucideIcon; // Changed from iconType to icon, expecting a Lucide component
   title: string;
   description: string;
   learnMoreLink: string;
@@ -15,49 +22,49 @@ interface Service {
 
 const services: Service[] = [
   {
-    iconType: "Code",
+    icon: Code,
     title: "Custom Web Development",
     description: "Bespoke web applications and platforms built with modern technologies to deliver seamless user experiences and robust performance.",
     learnMoreLink: "/services/web-development" 
   },
   {
-    iconType: "Smartphone",
+    icon: Smartphone,
     title: "Mobile App Development",
     description: "Native and cross-platform mobile apps for iOS and Android, designed for engagement and built for scale.",
     learnMoreLink: "/services/mobile-apps"
   },
   {
-    iconType: "Cloud",
+    icon: Cloud,
     title: "Cloud Engineering",
     description: "Architecting, migrating, and managing cloud infrastructure on AWS, Azure, and GCP for optimal scalability and security.",
     learnMoreLink: "/services/cloud-solutions"
   },
   {
-    iconType: "Brain",
+    icon: Brain,
     title: "AI & Machine Learning",
     description: "Intelligent solutions leveraging AI and ML to automate processes, derive insights, and create innovative products.",
     learnMoreLink: "/services/ai-ml"
   },
   {
-    iconType: "PenTool",
+    icon: PenTool,
     title: "UI/UX Design",
     description: "User-centric design that combines aesthetics with usability to create intuitive and delightful digital products.",
     learnMoreLink: "/services/ui-ux-design"
   },
   {
-    iconType: "Database",
+    icon: Database,
     title: "Data Engineering & Analytics",
     description: "Building robust data pipelines and analytics platforms to unlock the power of your data for informed decision-making.",
     learnMoreLink: "/services/data-analytics"
   },
   {
-    iconType: "ShieldCheck",
+    icon: ShieldCheck,
     title: "Cybersecurity Solutions",
     description: "Protecting your digital assets with comprehensive security assessments, strategies, and implementations.",
     learnMoreLink: "/services/cybersecurity"
   },
   {
-    iconType: "BarChartBig",
+    icon: BarChartBig,
     title: "DevOps & Automation",
     description: "Streamlining development lifecycle with CI/CD pipelines, infrastructure as code, and automated testing.",
     learnMoreLink: "/services/devops"
@@ -82,7 +89,7 @@ export default function ServicesPage() {
         {services.map((service, index) => (
           <FadeIn key={service.title} delay={index * 0.1}>
             <ServiceCard
-              iconType={service.iconType}
+              icon={service.icon} // Pass the Lucide icon component
               title={service.title}
               description={service.description}
               learnMoreLink={service.learnMoreLink}

@@ -3,26 +3,26 @@
 
 import GlassCard from '@/components/shared/GlassCard';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, AlertTriangle } from 'lucide-react';
+import { ArrowRight, type LucideIcon } from 'lucide-react'; // Import LucideIcon type
 import Link from 'next/link';
-import Service3DIcon, { type Service3DIconType } from './Service3DIcon'; // Import 3D icon and its type
 
 interface ServiceCardProps {
-  iconType: Service3DIconType; // Changed from iconName to iconType
+  icon: LucideIcon; // Changed from iconType to icon, expecting a Lucide component
   title: string;
   description: string;
   learnMoreLink?: string;
 }
 
-const ServiceCard = ({ iconType, title, description, learnMoreLink = "#" }: ServiceCardProps) => {
+const ServiceCard = ({ icon: Icon, title, description, learnMoreLink = "#" }: ServiceCardProps) => {
   return (
     <GlassCard
       className="h-full flex flex-col transition-all duration-300 hover:shadow-primary/40"
       whileHover={{ y: -5 }}
     >
       <div className="flex items-center mb-4">
-        {/* Replace 2D icon with 3D icon component */}
-        <Service3DIcon iconType={iconType} className="mr-4" />
+        <div className="p-3 bg-primary/10 rounded-full mr-4 ring-1 ring-inset ring-primary/30">
+          <Icon className="h-7 w-7 text-primary" /> {/* Render the passed Icon component */}
+        </div>
         <h3 className="text-xl font-bold font-headline text-foreground">{title}</h3>
       </div>
       <p className="text-foreground/70 text-sm mb-6 flex-grow">
@@ -38,5 +38,3 @@ const ServiceCard = ({ iconType, title, description, learnMoreLink = "#" }: Serv
 };
 
 export default ServiceCard;
-// Export Service3DIconType if it's needed by other components, though it's primarily used here and in service/page.tsx
-export type { Service3DIconType };

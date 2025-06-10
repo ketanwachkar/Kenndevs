@@ -6,21 +6,11 @@ import FadeIn from '@/components/shared/FadeIn';
 import { ArrowRight, Zap } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import dynamic from 'next/dynamic';
-
-// Dynamically import Hero3DScene with SSR disabled and a loading placeholder
-const Hero3DScene = dynamic(() => import('./Hero3DScene'), {
-  ssr: false,
-  loading: () => <div style={{ position: 'absolute', inset: 0, zIndex: 0, background: 'transparent' }} aria-hidden="true" />,
-});
 
 const HeroSection = () => {
   return (
     <div className="relative isolate overflow-hidden min-h-[calc(100vh-5rem)] flex items-center justify-center py-20">
-      {/* 3D Scene */}
-      <Hero3DScene />
-
-      {/* Subtle animated background elements - kept for layering if desired, adjust z-index if needed */}
+      {/* Subtle animated background elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden [mask-image:radial-gradient(closest-side,white,transparent)]">
         <svg
           className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-primary/10 "
@@ -48,7 +38,7 @@ const HeroSection = () => {
         </svg>
       </div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"> {/* Ensure content is above 3D scene */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <FadeIn yOffset={0} duration={0.8}>
           <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6 ring-1 ring-inset ring-primary/30">
             <Zap className="h-4 w-4" />
@@ -85,7 +75,7 @@ const HeroSection = () => {
                 width={1200}
                 height={600}
                 priority
-                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 opacity-50 group-hover:opacity-75" // Adjusted opacity for 3D visibility
+                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 opacity-75 group-hover:opacity-100"
                 data-ai-hint="abstract technology"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent"></div>
