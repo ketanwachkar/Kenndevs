@@ -1,20 +1,16 @@
 
+"use client";
+
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import ServiceCard from '@/components/services/ServiceCard';
 import FadeIn from '@/components/shared/FadeIn';
 import { 
   Code, Smartphone, Cloud, Brain, PenTool, 
   Database, ShieldCheck, BarChartBig, type LucideIcon 
-} from 'lucide-react'; // Import Lucide icons and LucideIcon type
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Our Services',
-  description: 'Explore the wide range of software development services offered by NebulaCode, including web development, mobile apps, cloud solutions, AI/ML, UI/UX design, and more.',
-};
+} from 'lucide-react';
 
 interface Service {
-  icon: LucideIcon; // Changed from iconType to icon, expecting a Lucide component
+  icon: LucideIcon;
   title: string;
   description: string;
   learnMoreLink: string;
@@ -89,7 +85,7 @@ export default function ServicesPage() {
         {services.map((service, index) => (
           <FadeIn key={service.title} delay={index * 0.1}>
             <ServiceCard
-              icon={service.icon} // Pass the Lucide icon component
+              icon={service.icon}
               title={service.title}
               description={service.description}
               learnMoreLink={service.learnMoreLink}
