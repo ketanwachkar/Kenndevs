@@ -1,9 +1,10 @@
+
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import FadeIn from '@/components/shared/FadeIn';
 import GlassCard from '@/components/shared/GlassCard';
 import AnimatedButton from '@/components/shared/AnimatedButton';
 import Image from 'next/image';
-import { Briefcase, Users, Coffee, ArrowRight } from 'lucide-react';
+import { Briefcase, Users, Coffee, ArrowRight, Zap } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

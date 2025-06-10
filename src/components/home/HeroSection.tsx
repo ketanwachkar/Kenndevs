@@ -1,10 +1,11 @@
+
 "use client";
 
 import AnimatedButton from '@/components/shared/AnimatedButton';
 import FadeIn from '@/components/shared/FadeIn';
 import { ArrowRight, Zap } from 'lucide-react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'; // Ensure Button is imported
 
 const HeroSection = () => {
   return (
