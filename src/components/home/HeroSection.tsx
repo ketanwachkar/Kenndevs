@@ -8,11 +8,10 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import dynamic from 'next/dynamic';
 
-// Dynamically import Hero3DScene with SSR disabled
+// Dynamically import Hero3DScene with SSR disabled and a loading placeholder
 const Hero3DScene = dynamic(() => import('./Hero3DScene'), {
   ssr: false,
-  // Optional: add a loading component if the 3D scene takes time to load
-  // loading: () => <p>Loading 3D scene...</p>, 
+  loading: () => <div style={{ position: 'absolute', inset: 0, zIndex: 0, background: 'transparent' }} aria-hidden="true" />,
 });
 
 const HeroSection = () => {
