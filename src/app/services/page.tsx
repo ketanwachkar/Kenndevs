@@ -3,15 +3,21 @@ import SectionWrapper from '@/components/shared/SectionWrapper';
 import ServiceCard from '@/components/services/ServiceCard';
 import FadeIn from '@/components/shared/FadeIn';
 import type { Metadata } from 'next';
-// Icons are now handled within ServiceCard based on iconName
-// import { Code, Smartphone, Cloud, Brain, PenTool, Database, ShieldCheck, BarChartBig } from 'lucide-react';
+import type { IconName } from '@/components/services/ServiceCard'; // Ensure IconName is exported from ServiceCard
 
 export const metadata: Metadata = {
   title: 'Our Services',
   description: 'Explore the wide range of software development services offered by NebulaCode, including web development, mobile apps, cloud solutions, AI/ML, UI/UX design, and more.',
 };
 
-const services = [
+interface Service {
+  iconName: IconName;
+  title: string;
+  description: string;
+  learnMoreLink: string;
+}
+
+const services: Service[] = [
   {
     iconName: "Code",
     title: "Custom Web Development",
@@ -79,7 +85,12 @@ export default function ServicesPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, index) => (
           <FadeIn key={service.title} delay={index * 0.1}>
-            <ServiceCard {...service} />
+            <ServiceCard
+              iconName={service.iconName}
+              title={service.title}
+              description={service.description}
+              learnMoreLink={service.learnMoreLink}
+            />
           </FadeIn>
         ))}
       </div>
