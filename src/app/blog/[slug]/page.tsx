@@ -12,8 +12,9 @@ const postsData: { [key: string]: any } = {
     title: "The Future of Web Development: Trends to Watch in 2024",
     date: "July 15, 2024",
     author: "Jane Doe, Lead Developer",
-    imageUrl: "https://source.unsplash.com/featured/1200x600/?technology,futuristic,web,development,abstract",
+    imageUrl: "https://placehold.co/1200x600.png",
     altText: "Abstract image representing the future of web development and technology trends.",
+    dataAiHint: "technology web",
     content: `
       <p>The landscape of web development is constantly evolving. As we move further into 2024, several key trends are emerging that promise to reshape how we build and interact with websites and web applications. Staying ahead of these trends is crucial for developers and businesses alike.</p>
       <h2 class="text-2xl font-bold my-4 font-headline">AI-Powered Development Tools</h2>
@@ -85,6 +86,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 layout="fill"
                 objectFit="cover"
                 priority
+                data-ai-hint={post.dataAiHint}
               />
             </div>
           )}

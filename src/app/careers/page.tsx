@@ -117,7 +117,7 @@ export default function CareersPage() {
         <FadeIn className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl font-headline">Our Culture</h2>
             <div className="relative aspect-video max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg my-8">
-              <Image src="https://source.unsplash.com/featured/1000x560/?office,team,culture,modern,workplace,tech" alt="NebulaCode team working in a vibrant and collaborative modern office environment." layout="fill" objectFit="cover" />
+              <Image src="https://placehold.co/1000x560.png" alt="NebulaCode team working in a vibrant and collaborative modern office environment." layout="fill" objectFit="cover" data-ai-hint="office team" />
             </div>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
               We foster a culture of innovation, learning, and mutual respect. At NebulaCode, you'll work with cutting-edge technologies, solve challenging problems, and make a real impact.

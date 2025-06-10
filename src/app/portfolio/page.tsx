@@ -18,8 +18,9 @@ const projects = [
     title: "E-commerce Platform Overhaul",
     category: "Web Development",
     description: "Revitalized a major online retailer's platform, resulting in a 40% increase in conversions and improved user experience.",
-    imageUrl: "https://source.unsplash.com/featured/800x600/?ecommerce,website,online,shopping,interface",
+    imageUrl: "https://placehold.co/800x600.png",
     altText: "Mockup of a modern e-commerce website interface on a laptop screen.",
+    dataAiHint: "ecommerce website", // Added dataAiHint
     liveLink: "#",
     caseStudyLink: "/portfolio/ecommerce-overhaul",
   },
@@ -27,8 +28,9 @@ const projects = [
     title: "AI-Powered Healthcare App",
     category: "Mobile & AI",
     description: "Developed an innovative mobile application for patient monitoring using AI, enhancing remote healthcare capabilities.",
-    imageUrl: "https://source.unsplash.com/featured/800x600/?mobile,app,health,ai,technology,medical",
+    imageUrl: "https://placehold.co/800x600.png",
     altText: "Smartphone displaying an AI-powered healthcare application interface.",
+    dataAiHint: "mobile health", // Added dataAiHint
     liveLink: "#",
     caseStudyLink: "/portfolio/healthcare-app",
   },
@@ -36,8 +38,9 @@ const projects = [
     title: "Cloud Migration for Fintech",
     category: "Cloud Solutions",
     description: "Successfully migrated a financial institution's legacy systems to a secure and scalable cloud infrastructure.",
-    imageUrl: "https://source.unsplash.com/featured/800x600/?cloud,fintech,data,security,finance,server",
+    imageUrl: "https://placehold.co/800x600.png",
     altText: "Abstract representation of cloud data security for a fintech company.",
+    dataAiHint: "cloud fintech", // Added dataAiHint
     liveLink: "#",
     caseStudyLink: "/portfolio/fintech-cloud-migration",
   },
@@ -68,6 +71,7 @@ export default function PortfolioPage() {
                   layout="fill"
                   objectFit="cover"
                   className="transition-transform duration-500 group-hover:scale-105"
+                  data-ai-hint={project.dataAiHint}
                 />
               </div>
               <div className="p-6 flex flex-col flex-grow">

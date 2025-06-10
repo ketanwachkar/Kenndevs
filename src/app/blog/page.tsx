@@ -14,8 +14,9 @@ const posts = [
     slug: "future-of-web-development",
     title: "The Future of Web Development: Trends to Watch in 2024",
     excerpt: "Discover the emerging technologies and methodologies shaping the future of web development, from AI-powered tools to serverless architectures.",
-    imageUrl: "https://source.unsplash.com/featured/800x450/?web,development,future,technology",
+    imageUrl: "https://placehold.co/800x450.png",
     altText: "Illustration of futuristic web development concepts and technology.",
+    dataAiHint: "web development", // Added dataAiHint
     date: "July 15, 2024",
     author: "Jane Doe, Lead Developer",
   },
@@ -23,8 +24,9 @@ const posts = [
     slug: "mastering-ui-ux-design",
     title: "Mastering UI/UX: Principles for Creating Intuitive Digital Products",
     excerpt: "A deep dive into the core principles of UI/UX design that help create user-friendly and engaging digital experiences.",
-    imageUrl: "https://source.unsplash.com/featured/800x450/?ui,ux,design,digital,product,interface",
+    imageUrl: "https://placehold.co/800x450.png",
     altText: "Abstract representation of UI/UX design principles for digital products.",
+    dataAiHint: "ui ux", // Added dataAiHint
     date: "July 1, 2024",
     author: "John Smith, UI/UX Lead",
   },
@@ -32,8 +34,9 @@ const posts = [
     slug: "demystifying-cloud-native",
     title: "Demystifying Cloud-Native: A Guide for Businesses",
     excerpt: "Understand what cloud-native architecture means and how it can benefit your business by enabling scalability, resilience, and agility.",
-    imageUrl: "https://source.unsplash.com/featured/800x450/?cloud,native,server,technology,data",
+    imageUrl: "https://placehold.co/800x450.png",
     altText: "Cloud-native architecture and its benefits for business scalability.",
+    dataAiHint: "cloud native", // Added dataAiHint
     date: "June 20, 2024",
     author: "Alice Brown, Cloud Architect",
   },

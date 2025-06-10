@@ -5,7 +5,7 @@ import AnimatedButton from '@/components/shared/AnimatedButton';
 import FadeIn from '@/components/shared/FadeIn';
 import { ArrowRight, Zap } from 'lucide-react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'; // Added import for Button
 
 const HeroSection = () => {
   return (
@@ -70,12 +70,13 @@ const HeroSection = () => {
         <FadeIn delay={0.8} duration={1} className="mt-16 sm:mt-24">
            <div className="relative group aspect-[2/1] w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl shadow-primary/20">
             <Image
-                src="https://source.unsplash.com/featured/1200x600/?abstract,technology,code,digital,futuristic,network"
+                src="https://placehold.co/1200x600.png"
                 alt="Abstract visual representing cutting-edge technology and digital innovation."
                 width={1200}
                 height={600}
                 priority
                 className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                data-ai-hint="abstract technology"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent"></div>
           </div>
