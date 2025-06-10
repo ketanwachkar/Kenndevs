@@ -1,4 +1,6 @@
 
+"use client"; // Add this line
+
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import ServiceCard from '@/components/services/ServiceCard';
 import FadeIn from '@/components/shared/FadeIn';
@@ -7,7 +9,7 @@ import type { IconName } from '@/components/services/ServiceCard'; // Ensure Ico
 
 export const metadata: Metadata = {
   title: 'Our Services',
-  description: 'Explore the wide range of software development services offered by NebulaCode, including web development, mobile apps, cloud solutions, AI/ML, UI/UX design, and more.',
+  description: 'Explore the wide range_of software development services offered by NebulaCode, including web development, mobile apps, cloud solutions, AI/ML, UI/UX design, and more.',
 };
 
 interface Service {
@@ -22,7 +24,7 @@ const services: Service[] = [
     iconName: "Code",
     title: "Custom Web Development",
     description: "Bespoke web applications and platforms built with modern technologies to deliver seamless user experiences and robust performance.",
-    learnMoreLink: "/services/web-development"
+    learnMoreLink: "/services/web-development" 
   },
   {
     iconName: "Smartphone",
