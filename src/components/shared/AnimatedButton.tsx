@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -48,18 +49,23 @@ const AnimatedButton = ({
     className
   );
   
-  // Override Shadcn variants for this specific button styling
-  // We use this rather than ShadCN variants as we need a gradient bg
   const baseButtonClassName = buttonClasses.split(' ').filter(c => !c.startsWith('bg-') && !c.startsWith('text-') && !c.startsWith('hover:bg-') && !c.startsWith('hover:text-')).join(' ');
 
 
   if (href) {
+    // passHref is needed if motion.a renders an <a> tag.
+    // legacyBehavior is removed.
     return (
-      <Link href={href} passHref legacyBehavior>
+      <Link href={href} passHref {...(props as Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & { legacyBehavior?: boolean })}>
         <motion.a
           {...motionProps}
           className={cn(baseButtonClassName, "inline-flex items-center justify-center", className)}
-          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+          // Filter out button-specific props not valid for <a>
+          // href is handled by Link, type/disabled are not for <a>
+          // onClick can be passed if intended for the anchor
+          onClick={props.onClick}
+          target={props.target}
+          rel={props.rel}
         >
           {buttonContent}
         </motion.a>

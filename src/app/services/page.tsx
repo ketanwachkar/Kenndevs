@@ -1,8 +1,10 @@
+
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import ServiceCard from '@/components/services/ServiceCard';
 import FadeIn from '@/components/shared/FadeIn';
-import { Code, Smartphone, Cloud, Brain, PenTool, Database, ShieldCheck, BarChartBig } from 'lucide-react';
 import type { Metadata } from 'next';
+// Icons are now handled within ServiceCard based on iconName
+// import { Code, Smartphone, Cloud, Brain, PenTool, Database, ShieldCheck, BarChartBig } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Our Services',
@@ -11,49 +13,49 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: Code,
+    iconName: "Code",
     title: "Custom Web Development",
     description: "Bespoke web applications and platforms built with modern technologies to deliver seamless user experiences and robust performance.",
     learnMoreLink: "/services/web-development"
   },
   {
-    icon: Smartphone,
+    iconName: "Smartphone",
     title: "Mobile App Development",
     description: "Native and cross-platform mobile apps for iOS and Android, designed for engagement and built for scale.",
     learnMoreLink: "/services/mobile-apps"
   },
   {
-    icon: Cloud,
+    iconName: "Cloud",
     title: "Cloud Engineering",
     description: "Architecting, migrating, and managing cloud infrastructure on AWS, Azure, and GCP for optimal scalability and security.",
     learnMoreLink: "/services/cloud-solutions"
   },
   {
-    icon: Brain,
+    iconName: "Brain",
     title: "AI & Machine Learning",
     description: "Intelligent solutions leveraging AI and ML to automate processes, derive insights, and create innovative products.",
     learnMoreLink: "/services/ai-ml"
   },
   {
-    icon: PenTool,
+    iconName: "PenTool",
     title: "UI/UX Design",
     description: "User-centric design that combines aesthetics with usability to create intuitive and delightful digital products.",
     learnMoreLink: "/services/ui-ux-design"
   },
   {
-    icon: Database,
+    iconName: "Database",
     title: "Data Engineering & Analytics",
     description: "Building robust data pipelines and analytics platforms to unlock the power of your data for informed decision-making.",
     learnMoreLink: "/services/data-analytics"
   },
   {
-    icon: ShieldCheck,
+    iconName: "ShieldCheck",
     title: "Cybersecurity Solutions",
     description: "Protecting your digital assets with comprehensive security assessments, strategies, and implementations.",
     learnMoreLink: "/services/cybersecurity"
   },
   {
-    icon: BarChartBig,
+    iconName: "BarChartBig",
     title: "DevOps & Automation",
     description: "Streamlining development lifecycle with CI/CD pipelines, infrastructure as code, and automated testing.",
     learnMoreLink: "/services/devops"
