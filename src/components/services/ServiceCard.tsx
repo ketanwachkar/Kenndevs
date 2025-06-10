@@ -32,7 +32,7 @@ const ServiceCard = ({ iconName, title, description, learnMoreLink = "#" }: Serv
 
   if (!IconComponent) {
     // Fallback or error handling if iconName is invalid
-    console.warn(\`Icon "\${iconName}" not found in lucide-react library.\`);
+    console.warn(`Icon "${iconName}" not found in lucide-react library.`);
     return (
       <GlassCard 
         className="h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-primary/40"
@@ -80,3 +80,4 @@ const ServiceCard = ({ iconName, title, description, learnMoreLink = "#" }: Serv
 };
 
 export default ServiceCard;
+
