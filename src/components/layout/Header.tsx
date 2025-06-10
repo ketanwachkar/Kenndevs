@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -10,6 +11,8 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import AnimatedButton from '../shared/AnimatedButton';
+import { motion } from 'framer-motion';
+import ThemeToggleButton from '../shared/ThemeToggleButton';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,6 +26,13 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinkVariants = {
+    initial: { scaleX: 0 },
+    hover: { scaleX: 1 }
+  };
+
+  const navLinkTransition = { duration: 0.3, ease: "easeOut" };
+
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full transition-all duration-300",
@@ -34,63 +44,83 @@ const Header = () => {
             <Logo className="h-8 w-auto" />
           </Link>
 
-          <nav className="hidden md:flex space-x-2 lg:space-x-4">
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {NAV_LINKS.filter(link => ['Home', 'Services', 'Portfolio', 'Blog', 'Contact Us'].includes(link.label)).map((link) => (
-              <Button key={link.label} variant="ghost" asChild
-                className={cn(
-                  "text-sm font-medium hover:bg-primary/10",
-                  pathname === link.href ? "text-primary" : "text-foreground/80 hover:text-foreground"
-                )}
+              <motion.div
+                key={link.label}
+                className="relative"
+                whileHover="hover"
+                initial="initial"
               >
-                <Link href={link.href}>{link.label}</Link>
-              </Button>
+                <Button
+                  variant="ghost"
+                  asChild
+                  className={cn(
+                    "text-sm font-medium",
+                    "hover:bg-transparent focus-visible:bg-transparent", // Override hover/focus for custom anim
+                    "transition-colors duration-200 ease-out", 
+                    pathname === link.href 
+                      ? "text-primary" 
+                      : "text-foreground/80 hover:text-primary focus-visible:text-primary"
+                  )}
+                >
+                  <Link href={link.href}>{link.label}</Link>
+                </Button>
+                <motion.span
+                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary"
+                  variants={navLinkVariants}
+                  transition={navLinkTransition}
+                  style={{ originX: 0.5 }} 
+                />
+              </motion.div>
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-3">
+            <ThemeToggleButton />
             <AnimatedButton href="/contact">Get a Quote</AnimatedButton>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggleButton />
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" aria-label="Open menu">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-background/90 backdrop-blur-xl p-0">
-                <div className="flex flex-col h-full">
-                  <div className="flex items-center justify-between p-6 border-b border-border">
-                    <Link href="/" className="flex items-center space-x-2" aria-label={`${COMPANY_NAME} Home`}>
-                       <Logo className="h-8 w-auto" />
-                    </Link>
-                    <SheetClose asChild>
-                      <Button variant="ghost" size="icon" aria-label="Close menu">
-                        <X className="h-6 w-6" />
-                      </Button>
+              <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-background/90 backdrop-blur-xl p-0 flex flex-col">
+                <div className="flex items-center justify-between p-6 border-b border-border">
+                  <Link href="/" className="flex items-center space-x-2" aria-label={`${COMPANY_NAME} Home`}>
+                     <Logo className="h-8 w-auto" />
+                  </Link>
+                  <SheetClose asChild>
+                    <Button variant="ghost" size="icon" aria-label="Close menu">
+                      <X className="h-6 w-6" />
+                    </Button>
+                  </SheetClose>
+                </div>
+                <nav className="flex-grow p-6 space-y-2 overflow-y-auto">
+                  {NAV_LINKS.map((link) => (
+                    <SheetClose asChild key={link.label}>
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          "flex items-center space-x-3 px-3 py-3 rounded-md text-base font-medium hover:bg-primary/10 transition-colors",
+                          pathname === link.href ? "bg-primary/20 text-primary" : "text-foreground/80 hover:text-foreground"
+                        )}
+                      >
+                        {link.icon && <link.icon className="h-5 w-5" />}
+                        <span>{link.label}</span>
+                      </Link>
                     </SheetClose>
-                  </div>
-                  <nav className="flex-grow p-6 space-y-2">
-                    {NAV_LINKS.map((link) => (
-                      <SheetClose asChild key={link.label}>
-                        <Link
-                          href={link.href}
-                          className={cn(
-                            "flex items-center space-x-3 px-3 py-3 rounded-md text-base font-medium hover:bg-primary/10 transition-colors",
-                            pathname === link.href ? "bg-primary/20 text-primary" : "text-foreground/80 hover:text-foreground"
-                          )}
-                        >
-                          {link.icon && <link.icon className="h-5 w-5" />}
-                          <span>{link.label}</span>
-                        </Link>
-                      </SheetClose>
-                    ))}
-                  </nav>
-                  <div className="p-6 border-t border-border">
-                    <AnimatedButton href="/contact" className="w-full">
-                      Get a Quote
-                    </AnimatedButton>
-                  </div>
+                  ))}
+                </nav>
+                <div className="p-6 border-t border-border mt-auto flex flex-col items-center space-y-4">
+                  <ThemeToggleButton />
+                  <AnimatedButton href="/contact" className="w-full">
+                    Get a Quote
+                  </AnimatedButton>
                 </div>
               </SheetContent>
             </Sheet>
