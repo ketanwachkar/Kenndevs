@@ -28,7 +28,7 @@ const ServiceCard = ({ iconName, title, description, learnMoreLink = "#" }: Serv
   const IconComponent = LucideIcons[iconName] as LucideIcons.LucideIcon;
 
   if (!IconComponent) {
-    console.warn(\`Icon "\${iconName}" not found in lucide-react library.\`); // Corrected console.warn
+    console.warn(`Icon "${iconName}" not found in lucide-react library.`); // Corrected console.warn
     return (
       <GlassCard
         className="h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-primary/40"
