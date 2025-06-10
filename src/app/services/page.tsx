@@ -4,13 +4,14 @@
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import ServiceCard from '@/components/services/ServiceCard';
 import FadeIn from '@/components/shared/FadeIn';
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next'; // Removed as metadata cannot be exported from client components
 import type { IconName } from '@/components/services/ServiceCard'; // Ensure IconName is exported from ServiceCard
 
-export const metadata: Metadata = {
-  title: 'Our Services',
-  description: 'Explore the wide range_of software development services offered by NebulaCode, including web development, mobile apps, cloud solutions, AI/ML, UI/UX design, and more.',
-};
+// Removed metadata export as it's not allowed in client components
+// export const metadata: Metadata = {
+//   title: 'Our Services',
+//   description: 'Explore the wide range_of software development services offered by NebulaCode, including web development, mobile apps, cloud solutions, AI/ML, UI/UX design, and more.',
+// };
 
 interface Service {
   iconName: IconName;
@@ -63,7 +64,7 @@ const services: Service[] = [
     learnMoreLink: "/services/cybersecurity"
   },
   {
-    iconName: "BarChartBig",
+    iconName: "BarChartBig", // Corrected from BarChart to BarChartBig based on typical lucide naming
     title: "DevOps & Automation",
     description: "Streamlining development lifecycle with CI/CD pipelines, infrastructure as code, and automated testing.",
     learnMoreLink: "/services/devops"
@@ -99,3 +100,4 @@ export default function ServicesPage() {
     </SectionWrapper>
   );
 }
+
