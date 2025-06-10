@@ -5,15 +5,26 @@ import AnimatedButton from '@/components/shared/AnimatedButton';
 import FadeIn from '@/components/shared/FadeIn';
 import { ArrowRight, Zap } from 'lucide-react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button'; // Added import for Button
+import { Button } from '@/components/ui/button';
+import dynamic from 'next/dynamic';
+
+// Dynamically import Hero3DScene with SSR disabled
+const Hero3DScene = dynamic(() => import('./Hero3DScene'), {
+  ssr: false,
+  // Optional: add a loading component if the 3D scene takes time to load
+  // loading: () => <p>Loading 3D scene...</p>, 
+});
 
 const HeroSection = () => {
   return (
-    <div className="relative isolate overflow-hidden min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 bg-gradient-to-br from-background via-accent/10 to-background">
-      {/* Subtle animated background elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+    <div className="relative isolate overflow-hidden min-h-[calc(100vh-5rem)] flex items-center justify-center py-20">
+      {/* 3D Scene */}
+      <Hero3DScene />
+
+      {/* Subtle animated background elements - kept for layering if desired, adjust z-index if needed */}
+      <div className="absolute inset-0 -z-10 overflow-hidden [mask-image:radial-gradient(closest-side,white,transparent)]">
         <svg
-          className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-primary/20 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
+          className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-primary/10 "
           aria-hidden="true"
         >
           <defs>
@@ -38,7 +49,7 @@ const HeroSection = () => {
         </svg>
       </div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"> {/* Ensure content is above 3D scene */}
         <FadeIn yOffset={0} duration={0.8}>
           <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6 ring-1 ring-inset ring-primary/30">
             <Zap className="h-4 w-4" />
@@ -68,17 +79,17 @@ const HeroSection = () => {
         </FadeIn>
 
         <FadeIn delay={0.8} duration={1} className="mt-16 sm:mt-24">
-           <div className="relative group aspect-[2/1] w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl shadow-primary/20">
+           <div className="relative group aspect-[2/1] w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl shadow-primary/20 glassmorphic">
             <Image
                 src="https://placehold.co/1200x600.png"
                 alt="Abstract visual representing cutting-edge technology and digital innovation."
                 width={1200}
                 height={600}
                 priority
-                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 opacity-50 group-hover:opacity-75" // Adjusted opacity for 3D visibility
                 data-ai-hint="abstract technology"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent"></div>
           </div>
         </FadeIn>
       </div>

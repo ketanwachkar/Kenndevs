@@ -35,6 +35,39 @@ The header includes a dark/light theme toggle button.
 - It toggles a `dark` class on the `<html>` element and uses `localStorage` to persist the user's preference.
 - The initial theme is determined by `localStorage`, the `dark` class on the `<html>` tag (set in `src/app/layout.tsx`), or the user's system preference.
 
+## 3D Graphics Integration (React Three Fiber)
+
+This project uses **React Three Fiber (R3F)** along with **Three.js** and **@react-three/drei** to incorporate 3D graphics.
+
+### Dependencies
+Ensure you have the following dependencies in your `package.json`:
+```json
+"three": "^0.166.1",
+"@react-three/fiber": "^8.16.8",
+"@react-three/drei": "^9.108.1",
+"@types/three": "^0.165.0" 
+```
+If not already installed, run `npm install three @react-three/fiber @react-three/drei` and `npm install --save-dev @types/three`.
+
+### Key 3D Components
+- **`src/components/home/Hero3DScene.tsx`**: Provides an animated 3D background for the homepage hero section.
+- **`src/components/services/Service3DIcon.tsx`**: Renders simple 3D animated icons for service cards.
+
+### Customizing 3D Elements
+- **Models and Shapes**: You can modify the geometries (e.g., `boxGeometry`, `sphereGeometry`) and materials (`meshStandardMaterial`) within these components to change the appearance of 3D objects.
+- **Animations**: Animations are typically handled using the `useFrame` hook from `@react-three/fiber` for continuous updates or by leveraging `@react-three/drei` helpers.
+- **Performance**:
+    - Use low-polygon models.
+    - Optimize textures.
+    - Consider dynamic imports for larger 3D components if they are not immediately visible.
+- **Accessibility (`prefers-reduced-motion`)**: For users who prefer reduced motion, you can conditionally skip animations or entire 3D scenes. This can be implemented by checking `window.matchMedia('(prefers-reduced-motion: reduce)').matches` within your R3F components and adjusting behavior accordingly. (This is not yet fully implemented across all 3D components).
+- **WebGL Fallbacks**: For browsers or devices that do not support WebGL, or for performance reasons, consider implementing fallbacks (e.g., static images or 2D animations). This can be achieved by checking for WebGL support on the client-side before rendering the `<Canvas>`. (This is not yet implemented).
+
+### Further Enhancements
+- Explore more complex 3D models (e.g., GLTF format) using `@react-three/drei`'s `useGLTF` hook.
+- Implement more sophisticated interactions (e.g., mouse-based camera controls, click events on 3D objects).
+- Add post-processing effects for a more polished look using `@react-three/postprocessing`.
+
 ## Using Unsplash Images (Alternative)
 
 If you prefer to use dynamic images directly from Unsplash for development or as more visually rich placeholders:
