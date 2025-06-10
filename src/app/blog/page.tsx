@@ -9,34 +9,33 @@ export const metadata: Metadata = {
   description: 'Read the latest insights, news, and articles from the NebulaCode team on software development, technology trends, and industry best practices.',
 };
 
-// Placeholder blog posts
 const posts = [
   {
     slug: "future-of-web-development",
     title: "The Future of Web Development: Trends to Watch in 2024",
     excerpt: "Discover the emerging technologies and methodologies shaping the future of web development, from AI-powered tools to serverless architectures.",
-    imageUrl: "https://placehold.co/800x450.png",
+    imageUrl: "https://source.unsplash.com/featured/800x450/?web,development,future,technology",
+    altText: "Illustration of futuristic web development concepts and technology.",
     date: "July 15, 2024",
     author: "Jane Doe, Lead Developer",
-    dataAiHint: "technology abstract"
   },
   {
     slug: "mastering-ui-ux-design",
     title: "Mastering UI/UX: Principles for Creating Intuitive Digital Products",
     excerpt: "A deep dive into the core principles of UI/UX design that help create user-friendly and engaging digital experiences.",
-    imageUrl: "https://placehold.co/800x450.png",
+    imageUrl: "https://source.unsplash.com/featured/800x450/?ui,ux,design,digital,product,interface",
+    altText: "Abstract representation of UI/UX design principles for digital products.",
     date: "July 1, 2024",
     author: "John Smith, UI/UX Lead",
-    dataAiHint: "design abstract"
   },
   {
     slug: "demystifying-cloud-native",
     title: "Demystifying Cloud-Native: A Guide for Businesses",
     excerpt: "Understand what cloud-native architecture means and how it can benefit your business by enabling scalability, resilience, and agility.",
-    imageUrl: "https://placehold.co/800x450.png",
+    imageUrl: "https://source.unsplash.com/featured/800x450/?cloud,native,server,technology,data",
+    altText: "Cloud-native architecture and its benefits for business scalability.",
     date: "June 20, 2024",
     author: "Alice Brown, Cloud Architect",
-    dataAiHint: "cloud technology"
   },
 ];
 

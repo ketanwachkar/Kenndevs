@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const teamMembers = [
-  { name: "Alice Johnson", role: "CEO & Founder", imageUrl: "https://placehold.co/400x400.png", dataAiHint: "professional portrait" },
-  { name: "Bob Williams", role: "CTO", imageUrl: "https://placehold.co/400x400.png", dataAiHint: "professional tech" },
-  { name: "Carol Davis", role: "Lead Designer", imageUrl: "https://placehold.co/400x400.png", dataAiHint: "creative portrait" },
-  { name: "David Miller", role: "Head of Engineering", imageUrl: "https://placehold.co/400x400.png", dataAiHint: "engineer portrait" },
+  { name: "Alice Johnson", role: "CEO & Founder", imageUrl: "https://source.unsplash.com/featured/400x400/?woman,professional,portrait,ceo", altText: "Alice Johnson, CEO and Founder of NebulaCode" },
+  { name: "Bob Williams", role: "CTO", imageUrl: "https://source.unsplash.com/featured/400x400/?man,tech,professional,cto", altText: "Bob Williams, CTO of NebulaCode" },
+  { name: "Carol Davis", role: "Lead Designer", imageUrl: "https://source.unsplash.com/featured/400x400/?woman,creative,designer,portrait", altText: "Carol Davis, Lead Designer at NebulaCode" },
+  { name: "David Miller", role: "Head of Engineering", imageUrl: "https://source.unsplash.com/featured/400x400/?man,engineer,professional,portrait", altText: "David Miller, Head of Engineering at NebulaCode" },
 ];
 
 const values = [
@@ -54,7 +54,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
-              <Image src="https://placehold.co/800x600.png" alt="NebulaCode Team Working" data-ai-hint="team collaboration" layout="fill" objectFit="cover" />
+              <Image src="https://source.unsplash.com/featured/800x600/?team,collaboration,office,software,tech" alt="NebulaCode team collaborating in a modern office setting" layout="fill" objectFit="cover" />
             </div>
           </div>
         </FadeIn>
@@ -116,7 +116,7 @@ export default function AboutPage() {
             <FadeIn key={member.name} delay={index * 0.1}>
               <GlassCard className="text-center">
                 <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-2 border-primary/50">
-                  <Image src={member.imageUrl} alt={member.name} data-ai-hint={member.dataAiHint} layout="fill" objectFit="cover" />
+                  <Image src={member.imageUrl} alt={member.altText} layout="fill" objectFit="cover" />
                 </div>
                 <h3 className="text-lg font-semibold font-headline text-foreground">{member.name}</h3>
                 <p className="text-sm text-primary">{member.role}</p>

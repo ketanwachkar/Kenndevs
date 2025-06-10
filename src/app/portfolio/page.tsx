@@ -18,8 +18,8 @@ const projects = [
     title: "E-commerce Platform Overhaul",
     category: "Web Development",
     description: "Revitalized a major online retailer's platform, resulting in a 40% increase in conversions and improved user experience.",
-    imageUrl: "https://placehold.co/800x600.png",
-    dataAiHint: "ecommerce website",
+    imageUrl: "https://source.unsplash.com/featured/800x600/?ecommerce,website,online,shopping,interface",
+    altText: "Mockup of a modern e-commerce website interface on a laptop screen.",
     liveLink: "#",
     caseStudyLink: "/portfolio/ecommerce-overhaul",
   },
@@ -27,8 +27,8 @@ const projects = [
     title: "AI-Powered Healthcare App",
     category: "Mobile & AI",
     description: "Developed an innovative mobile application for patient monitoring using AI, enhancing remote healthcare capabilities.",
-    imageUrl: "https://placehold.co/800x600.png",
-    dataAiHint: "mobile health app",
+    imageUrl: "https://source.unsplash.com/featured/800x600/?mobile,app,health,ai,technology,medical",
+    altText: "Smartphone displaying an AI-powered healthcare application interface.",
     liveLink: "#",
     caseStudyLink: "/portfolio/healthcare-app",
   },
@@ -36,8 +36,8 @@ const projects = [
     title: "Cloud Migration for Fintech",
     category: "Cloud Solutions",
     description: "Successfully migrated a financial institution's legacy systems to a secure and scalable cloud infrastructure.",
-    imageUrl: "https://placehold.co/800x600.png",
-    dataAiHint: "cloud finance",
+    imageUrl: "https://source.unsplash.com/featured/800x600/?cloud,fintech,data,security,finance,server",
+    altText: "Abstract representation of cloud data security for a fintech company.",
     liveLink: "#",
     caseStudyLink: "/portfolio/fintech-cloud-migration",
   },
@@ -60,14 +60,13 @@ export default function PortfolioPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <FadeIn key={project.title} delay={index * 0.1}>
-            <GlassCard className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-primary/40">
+            <GlassCard className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-primary/40 group">
               <div className="relative aspect-video w-full">
                 <Image
                   src={project.imageUrl}
-                  alt={project.title}
+                  alt={project.altText || project.title}
                   layout="fill"
                   objectFit="cover"
-                  data-ai-hint={project.dataAiHint}
                   className="transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

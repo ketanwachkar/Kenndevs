@@ -1,3 +1,4 @@
+
 "use client";
 
 import GlassCard from '@/components/shared/GlassCard';
@@ -11,26 +12,25 @@ interface BlogPostCardProps {
   title: string;
   excerpt: string;
   imageUrl: string;
+  altText?: string; // Added altText prop
   date: string;
   author: string;
-  dataAiHint?: string;
 }
 
-const BlogPostCard = ({ slug, title, excerpt, imageUrl, date, author, dataAiHint }: BlogPostCardProps) => {
+const BlogPostCard = ({ slug, title, excerpt, imageUrl, altText, date, author }: BlogPostCardProps) => {
   return (
     <GlassCard 
-      className="flex flex-col overflow-hidden h-full transition-all duration-300 hover:shadow-primary/40"
+      className="flex flex-col overflow-hidden h-full transition-all duration-300 hover:shadow-primary/40 group" // Added group class for image hover effect
       whileHover={{ y: -5 }}
     >
       <Link href={`/blog/${slug}`} className="block">
         <div className="relative aspect-[16/9] w-full overflow-hidden">
           <Image
             src={imageUrl}
-            alt={title}
+            alt={altText || title} // Use provided altText or fall back to title
             layout="fill"
             objectFit="cover"
             className="transition-transform duration-500 group-hover:scale-105"
-            data-ai-hint={dataAiHint || "blog abstract"}
           />
         </div>
       </Link>
