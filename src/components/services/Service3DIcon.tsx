@@ -2,7 +2,9 @@
 "use client";
 
 import { useRef, useMemo, Suspense, useEffect, useState } from 'react';
-import type { Mesh } from 'three';
+import type { Mesh } from 'three'; // OK: three.js type import
+
+// NO STATIC IMPORTS from '@react-three/fiber' HERE
 
 export type Service3DIconType = 
   | 'Code' | 'Smartphone' | 'Cloud' | 'Brain' 
@@ -26,7 +28,7 @@ const AnimatedShape = ({
 }: {
   iconType: Service3DIconType;
   size: number;
-  useFrameHook: R3FServiceModules['useFrame'];
+  useFrameHook: R3FServiceModules['useFrame']; // Will be passed from parent
 }) => {
   const meshRef = useRef<Mesh>(null!);
   
@@ -81,7 +83,6 @@ const AnimatedShape = ({
     return { geometry: currentGeometry, color: currentColor };
   }, [iconType, size]);
 
-
   return (
     <mesh ref={meshRef} scale={1.8}>
       {geometry}
@@ -97,18 +98,18 @@ const AnimatedShape = ({
 };
 
 export default function Service3DIcon({ iconType, size = 1, className }: Service3DIconProps) {
-  const [r3f, setR3f] = useState<R3FServiceModules | null>(null);
+  const [r3fModules, setR3fModules] = useState<R3FServiceModules | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
 
   useEffect(() => {
     import('@react-three/fiber').then((fiber) => {
-      setR3f({
+      setR3fModules({
         Canvas: fiber.Canvas,
         useFrame: fiber.useFrame,
       });
     }).catch(err => {
-      console.error("Failed to load R3F for Service3DIcon:", err);
-      setLoadError("Failed to load 3D icon modules. " + (err.message || ''));
+      console.error("Service3DIcon: Failed to load R3F modules:", err);
+      setLoadError("Failed to load 3D icon modules. " + (err.message || String(err)));
     });
   }, []);
 
@@ -127,7 +128,7 @@ export default function Service3DIcon({ iconType, size = 1, className }: Service
      return (
       <div 
         className={className} 
-        style={{...containerStyle, background: 'rgba(255, 0, 0, 0.2)' }} // Red tint for error
+        style={{...containerStyle, background: 'rgba(255, 0, 0, 0.2)' }} 
         aria-label="Error loading 3D icon"
       >
         <p>Error</p>
@@ -135,23 +136,23 @@ export default function Service3DIcon({ iconType, size = 1, className }: Service
     );
   }
 
-  if (!r3f) {
+  if (!r3fModules || !r3fModules.Canvas || !r3fModules.useFrame) {
     return (
       <div 
         className={className} 
-        style={{...containerStyle, background: 'rgba(0, 255, 0, 0.1)' }} // Green tint for loading
-        aria-label="Loading 3D icon"
+        style={{...containerStyle, background: 'rgba(0, 255, 0, 0.1)' }} 
+        aria-label="Loading 3D icon modules"
       >
         <p>Load</p>
       </div>
     );
   }
 
-  const { Canvas: R3FCanvas, useFrame: r3fUseFrame } = r3f;
+  const { Canvas: R3FCanvas, useFrame: r3fUseFrame } = r3fModules;
 
   return (
     <div className={className} style={{ width: '48px', height: '48px' }}>
-      <R3FCanvas camera={{ position: [0, 0, 2.5], fov: 50 }} >
+      <R3FCanvas key={`service-icon-${iconType}`} camera={{ position: [0, 0, 2.5], fov: 50 }} >
         <ambientLight intensity={1} />
         <directionalLight position={[3, 3, 3]} intensity={0.8}/>
         <Suspense fallback={<mesh><boxGeometry args={[0.2,0.2,0.2]}/><meshBasicMaterial color="blue" wireframe /></mesh>}>
@@ -161,4 +162,3 @@ export default function Service3DIcon({ iconType, size = 1, className }: Service
     </div>
   );
 }
-
