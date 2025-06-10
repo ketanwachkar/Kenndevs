@@ -98,6 +98,7 @@ const AnimatedShape = ({
 
 export default function Service3DIcon({ iconType, size = 1, className }: Service3DIconProps) {
   const [r3f, setR3f] = useState<R3FServiceModules | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   useEffect(() => {
     import('@react-three/fiber').then((fiber) => {
@@ -105,23 +106,43 @@ export default function Service3DIcon({ iconType, size = 1, className }: Service
         Canvas: fiber.Canvas,
         useFrame: fiber.useFrame,
       });
-    }).catch(err => console.error("Failed to load R3F for Service3DIcon:", err));
+    }).catch(err => {
+      console.error("Failed to load R3F for Service3DIcon:", err);
+      setLoadError("Failed to load 3D icon modules. " + (err.message || ''));
+    });
   }, []);
+
+  const containerStyle: React.CSSProperties = {
+    width: '48px', 
+    height: '48px', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    fontSize: '10px',
+    textAlign: 'center',
+    color: 'white',
+  };
+  
+  if (loadError) {
+     return (
+      <div 
+        className={className} 
+        style={{...containerStyle, background: 'rgba(255, 0, 0, 0.2)' }} // Red tint for error
+        aria-label="Error loading 3D icon"
+      >
+        <p>Error</p>
+      </div>
+    );
+  }
 
   if (!r3f) {
     return (
       <div 
         className={className} 
-        style={{ 
-          width: '48px', 
-          height: '48px', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center' 
-        }}
+        style={{...containerStyle, background: 'rgba(0, 255, 0, 0.1)' }} // Green tint for loading
         aria-label="Loading 3D icon"
       >
-        {/* <p className="text-xs">...</p> */}
+        <p>Load</p>
       </div>
     );
   }
@@ -133,10 +154,11 @@ export default function Service3DIcon({ iconType, size = 1, className }: Service
       <R3FCanvas camera={{ position: [0, 0, 2.5], fov: 50 }} >
         <ambientLight intensity={1} />
         <directionalLight position={[3, 3, 3]} intensity={0.8}/>
-        <Suspense fallback={null}>
+        <Suspense fallback={<mesh><boxGeometry args={[0.2,0.2,0.2]}/><meshBasicMaterial color="blue" wireframe /></mesh>}>
           <AnimatedShape iconType={iconType} size={size} useFrameHook={r3fUseFrame} />
         </Suspense>
       </R3FCanvas>
     </div>
   );
 }
+

@@ -3,16 +3,15 @@
 
 import { useRef, useMemo, useState, useEffect, Suspense } from 'react';
 import type { Mesh } from 'three';
-// Note: THREE can often be imported directly if not causing issues, but R3F/Drei specific imports are delayed.
-// import * as THREE from 'three'; 
 
 interface R3FModules {
   Canvas: React.ComponentType<any>;
   useFrame: (callback: (state: any, delta: number) => void, renderPriority?: number) => void;
   Stars: React.ComponentType<any>;
+  Box: React.ComponentType<any>; // For fallback
+  MeshBasicMaterial: React.ComponentType<any>; // For fallback
 }
 
-// Define RotatingShape that uses the dynamically loaded useFrame hook
 const RotatingShape = ({
   position,
   color,
@@ -34,8 +33,6 @@ const RotatingShape = ({
     }
   });
 
-  // JSX geometry tags like <boxGeometry /> are intrinsic elements known to R3F's reconciler.
-  // They should work correctly once the Canvas from the loaded R3F is rendering.
   const geometry = useMemo(() => {
     switch (shapeType) {
       case 'box':
@@ -43,8 +40,6 @@ const RotatingShape = ({
       case 'sphere':
         return <sphereGeometry args={[0.7, 32, 16]} />;
       case 'torus':
-        // Using torusKnotGeometry, ensure it's available or use a simpler one if not.
-        // For this example, assuming R3F reconciler handles these standard geometries.
         return <torusKnotGeometry args={[0.5, 0.15, 100, 16]} />;
       default:
         return <boxGeometry args={[1, 1, 1]} />;
@@ -67,11 +62,26 @@ const RotatingShape = ({
   );
 };
 
+// Simple fallback component for Suspense
+const SuspenseFallbackMesh = ({ R3FModules }: { R3FModules: R3FModules | null }) => {
+  if (!R3FModules || !R3FModules.Box || !R3FModules.MeshBasicMaterial) return null;
+  // This fallback will only render if R3FModules are loaded, but Stars/RotatingShape are not.
+  // It's a bit of a placeholder; ideally, Suspense works on its own.
+  // For a truly isolated fallback, it might need to be simpler or not rely on R3FModules.
+  // However, the primary goal here is to see *something*.
+  return (
+    <R3FModules.Box args={[1, 1, 1]}>
+      <R3FModules.MeshBasicMaterial color="blue" wireframe />
+    </R3FModules.Box>
+  );
+};
+
+
 export default function Hero3DScene() {
   const [r3f, setR3f] = useState<R3FModules | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Dynamically import R3F and Drei
     Promise.all([
       import('@react-three/fiber'),
       import('@react-three/drei')
@@ -80,10 +90,38 @@ export default function Hero3DScene() {
         Canvas: fiber.Canvas,
         useFrame: fiber.useFrame,
         Stars: drei.Stars,
+        Box: fiber.Box, // Assuming Box is exported from fiber, might be from drei or geometry tag
+        MeshBasicMaterial: fiber.MeshBasicMaterial, // Assuming this is how you'd get it
       });
-    }).catch(err => console.error("Failed to load R3F modules for Hero3DScene:", err));
+    }).catch(err => {
+      console.error("Failed to load R3F modules for Hero3DScene:", err);
+      setLoadError("Failed to load 3D modules. " + (err.message || ''));
+    });
   }, []);
 
+  if (loadError) {
+    return (
+      <div 
+        style={{ 
+          position: 'absolute', 
+          inset: 0, 
+          zIndex: 0, 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          background: 'rgba(255, 0, 0, 0.2)',
+          color: 'white',
+          padding: '20px',
+          textAlign: 'center',
+          fontSize: '12px'
+        }}
+        aria-label="Error loading 3D graphics"
+      >
+        <p>Error loading 3D scene: {loadError}</p>
+      </div>
+    );
+  }
+  
   if (!r3f) {
     return (
       <div 
@@ -94,12 +132,12 @@ export default function Hero3DScene() {
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'center', 
-          background: 'transparent' 
+          background: 'rgba(255, 165, 0, 0.1)', // Orange tint for loading R3F modules
+          color: 'white'
         }}
         aria-label="Loading 3D graphics"
       >
-        {/* You can add a more sophisticated loader here if desired */}
-        {/* <p>Loading 3D...</p> */}
+        <p>Loading 3D scene modules...</p>
       </div>
     );
   }
@@ -122,7 +160,7 @@ export default function Hero3DScene() {
       <directionalLight position={[5, 5, 5]} intensity={1.2} color="hsl(var(--primary-foreground))" />
       <pointLight position={[-5, -5, -5]} intensity={0.8} color="hsl(var(--accent))" />
       
-      <Suspense fallback={null}>
+      <Suspense fallback={<mesh><boxGeometry args={[0.5,0.5,0.5]}/><meshBasicMaterial color="red" wireframe /></mesh>}>
         <R3FStars radius={80} depth={60} count={6000} factor={5} saturation={0} fade speed={1.2} />
         {shapesData.map((shape, i) => (
           <RotatingShape key={i} {...shape} useFrameHook={r3fUseFrame} />
@@ -131,3 +169,4 @@ export default function Hero3DScene() {
     </R3FCanvas>
   );
 }
+
