@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Button, type ButtonProps } from '@/components/ui/button';
+import { type ButtonProps } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import type { LucideIcon } from 'lucide-react';
 
@@ -15,15 +15,15 @@ interface AnimatedButtonProps extends ButtonProps {
   iconPosition?: 'left' | 'right';
 }
 
-const AnimatedButton = ({ 
-  children, 
-  href, 
-  className, 
-  icon: Icon, 
-  iconPosition = 'right', 
-  variant = "default", 
-  size = "default", 
-  ...props 
+const AnimatedButton = ({
+  children,
+  href,
+  className,
+  icon: Icon,
+  iconPosition = 'right',
+  variant = "default", // Not directly used for AnimatedButton's gradient, but part of ButtonProps
+  size = "default",
+  ...props // other props from ButtonProps like onClick, type, disabled, id, aria-*
 }: AnimatedButtonProps) => {
   const motionProps = {
     whileHover: { scale: 1.05, boxShadow: "0px 0px 15px hsl(var(--primary))" },
@@ -39,33 +39,26 @@ const AnimatedButton = ({
     </>
   );
 
-  const buttonClasses = cn(
+  const calculatedButtonClasses = cn(
     "relative overflow-hidden group rounded-lg text-sm font-medium transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/80",
-    "bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground", 
-    // ShadCN button size variants
+    "inline-flex items-center justify-center", // Ensures icon and text are aligned
+    "bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground", // Specific AnimatedButton styling
     size === 'sm' && 'px-3 py-1.5 text-xs',
     size === 'lg' && 'px-8 py-3 text-base',
-    size === 'default' && 'px-6 py-2.5', // Default px-4 py-2 is a bit small for prominent CTAs
+    size === 'default' && 'px-6 py-2.5',
     className
   );
-  
-  const baseButtonClassName = buttonClasses.split(' ').filter(c => !c.startsWith('bg-') && !c.startsWith('text-') && !c.startsWith('hover:bg-') && !c.startsWith('hover:text-')).join(' ');
-
 
   if (href) {
-    // passHref is needed if motion.a renders an <a> tag.
-    // legacyBehavior is removed.
+    const { type, disabled, ...anchorProps } = props; // Remove props not valid for <a>
+
     return (
-      <Link href={href} passHref {...(props as Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & { legacyBehavior?: boolean })}>
+      <Link href={href} passHref legacyBehavior>
         <motion.a
           {...motionProps}
-          className={cn(baseButtonClassName, "inline-flex items-center justify-center", className)}
-          // Filter out button-specific props not valid for <a>
-          // href is handled by Link, type/disabled are not for <a>
-          // onClick can be passed if intended for the anchor
-          onClick={props.onClick}
-          target={props.target}
-          rel={props.rel}
+          className={calculatedButtonClasses}
+          // Spread remaining props that are valid for <a>, like onClick, id, aria-*, target, rel
+          {...(anchorProps as Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'className'>)}
         >
           {buttonContent}
         </motion.a>
@@ -76,8 +69,8 @@ const AnimatedButton = ({
   return (
     <motion.button
       {...motionProps}
-      className={cn(baseButtonClassName, className)}
-      {...props}
+      className={calculatedButtonClasses}
+      {...props} // Spread all ButtonProps (onClick, type, disabled, etc.)
     >
       {buttonContent}
     </motion.button>

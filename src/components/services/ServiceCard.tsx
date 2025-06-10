@@ -3,20 +3,17 @@
 
 import GlassCard from '@/components/shared/GlassCard';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, AlertTriangle } from 'lucide-react'; // Explicitly import AlertTriangle
 import Link from 'next/link';
 import * as LucideIcons from 'lucide-react';
 
-// Define a type for the icon names we expect to use from lucide-react
-// This provides better type safety than just 'string'.
-// We filter out non-component exports like 'LucideIcon' type itself.
-type IconName = keyof Omit<typeof LucideIcons, 
-  | 'createLucideIcon' 
-  | 'icons' 
-  | 'LucideIcon' 
-  | 'LucideProps' 
-  | 'IconNode' 
-  | 'IconWeight' 
+type IconName = keyof Omit<typeof LucideIcons,
+  | 'createLucideIcon'
+  | 'icons'
+  | 'LucideIcon'
+  | 'LucideProps'
+  | 'IconNode'
+  | 'IconWeight'
   | 'default'
 >;
 
@@ -31,16 +28,15 @@ const ServiceCard = ({ iconName, title, description, learnMoreLink = "#" }: Serv
   const IconComponent = LucideIcons[iconName] as LucideIcons.LucideIcon;
 
   if (!IconComponent) {
-    // Fallback or error handling if iconName is invalid
-    console.warn(`Icon "${iconName}" not found in lucide-react library.`);
+    console.warn(\`Icon "\${iconName}" not found in lucide-react library.\`); // Corrected console.warn
     return (
-      <GlassCard 
+      <GlassCard
         className="h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-primary/40"
         whileHover={{ y: -5 }}
       >
         <div className="flex items-center mb-4">
           <div className="p-3 bg-destructive/10 rounded-full mr-4 ring-1 ring-inset ring-destructive/30">
-            <LucideIcons.AlertTriangle className="h-7 w-7 text-destructive" />
+            <AlertTriangle className="h-7 w-7 text-destructive" />
           </div>
           <h3 className="text-xl font-bold font-headline text-foreground">{title}</h3>
         </div>
@@ -57,7 +53,7 @@ const ServiceCard = ({ iconName, title, description, learnMoreLink = "#" }: Serv
   }
 
   return (
-    <GlassCard 
+    <GlassCard
       className="h-full flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-primary/40"
       whileHover={{ y: -5 }}
     >
@@ -80,4 +76,3 @@ const ServiceCard = ({ iconName, title, description, learnMoreLink = "#" }: Serv
 };
 
 export default ServiceCard;
-
