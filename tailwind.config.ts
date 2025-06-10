@@ -11,7 +11,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        headline: ['Space Grotesk', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -65,6 +65,8 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
         },
+        'glass-base': 'hsla(var(--glass-base-hsl), var(--glass-opacity))',
+        'glass-border': 'hsla(var(--glass-border-hsl), var(--glass-border-opacity))',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -93,6 +95,9 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      boxShadow: {
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+      }
     },
   },
   plugins: [require('tailwindcss-animate')],
