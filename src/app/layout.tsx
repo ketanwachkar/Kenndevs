@@ -6,14 +6,14 @@ import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'NebulaCode - Innovative Software Solutions',
-    template: '%s | NebulaCode',
+    default: 'KennStack - Innovative Software Solutions',
+    template: '%s | KennStack',
   },
-  description: 'NebulaCode is a cutting-edge software development company specializing in web development, mobile apps, cloud solutions, AI/ML, and UI/UX design.',
-  keywords: ['software development', 'web development', 'mobile apps', 'cloud solutions', 'AI', 'ML', 'UI/UX design', 'NebulaCode'],
-  authors: [{ name: 'NebulaCode' }],
-  creator: 'NebulaCode',
-  publisher: 'NebulaCode',
+  description: 'KennStack is a cutting-edge software development company specializing in web development, mobile apps, cloud solutions, AI/ML, and UI/UX design.',
+  keywords: ['software development', 'web development', 'mobile apps', 'cloud solutions', 'AI', 'ML', 'UI/UX design', 'KennStack'],
+  authors: [{ name: 'KennStack' }],
+  creator: 'KennStack',
+  publisher: 'KennStack',
 };
 
 export const viewport: Viewport = {

@@ -8,14 +8,14 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about NebulaCode\'s story, mission, vision, and the talented team dedicated to delivering exceptional software solutions.',
+  description: 'Learn about KennStack\'s story, mission, vision, and the talented team dedicated to delivering exceptional software solutions.',
 };
 
 const teamMembers = [
-  { name: "Alice Johnson", role: "CEO & Founder", imageUrl: "https://placehold.co/400x400.png", altText: "Alice Johnson, CEO and Founder of NebulaCode", dataAiHint: "woman professional" },
-  { name: "Bob Williams", role: "CTO", imageUrl: "https://placehold.co/400x400.png", altText: "Bob Williams, CTO of NebulaCode", dataAiHint: "man tech" },
-  { name: "Carol Davis", role: "Lead Designer", imageUrl: "https://placehold.co/400x400.png", altText: "Carol Davis, Lead Designer at NebulaCode", dataAiHint: "woman creative" },
-  { name: "David Miller", role: "Head of Engineering", imageUrl: "https://placehold.co/400x400.png", altText: "David Miller, Head of Engineering at NebulaCode", dataAiHint: "man engineer" },
+  { name: "Alice Johnson", role: "CEO & Founder", imageUrl: "https://placehold.co/400x400.png", altText: "Alice Johnson, CEO and Founder of KennStack", dataAiHint: "woman professional" },
+  { name: "Bob Williams", role: "CTO", imageUrl: "https://placehold.co/400x400.png", altText: "Bob Williams, CTO of KennStack", dataAiHint: "man tech" },
+  { name: "Carol Davis", role: "Lead Designer", imageUrl: "https://placehold.co/400x400.png", altText: "Carol Davis, Lead Designer at KennStack", dataAiHint: "woman creative" },
+  { name: "David Miller", role: "Head of Engineering", imageUrl: "https://placehold.co/400x400.png", altText: "David Miller, Head of Engineering at KennStack", dataAiHint: "man engineer" },
 ];
 
 const values = [
@@ -32,7 +32,7 @@ export default function AboutPage() {
         <div className="text-center">
           <FadeIn>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-              About NebulaCode
+              About KennStack
             </h1>
             <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-3xl mx-auto">
               We are a passionate team of innovators, thinkers, and creators dedicated to crafting exceptional digital experiences and robust software solutions that drive business success.
@@ -47,14 +47,14 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline mb-6">Our Story</h2>
               <p className="text-foreground/80 mb-4">
-                Founded in [Year], NebulaCode was born from a shared vision to bridge the gap between complex business challenges and elegant technological solutions. Our journey began with a small team of dedicated professionals and has since grown into a dynamic company serving clients across various industries.
+                Founded in [Year], KennStack was born from a shared vision to bridge the gap between complex business challenges and elegant technological solutions. Our journey began with a small team of dedicated professionals and has since grown into a dynamic company serving clients across various industries.
               </p>
               <p className="text-foreground/80">
                 We believe that technology, when applied thoughtfully, can be a powerful catalyst for change and growth. Our commitment is to not just build software, but to build partnerships and deliver lasting value.
               </p>
             </div>
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
-              <Image src="https://placehold.co/800x600.png" alt="NebulaCode team collaborating in a modern office setting" layout="fill" objectFit="cover" data-ai-hint="team collaboration" />
+              <Image src="https://placehold.co/800x600.png" alt="KennStack team collaborating in a modern office setting" layout="fill" objectFit="cover" data-ai-hint="team collaboration" />
             </div>
           </div>
         </FadeIn>
@@ -107,7 +107,7 @@ export default function AboutPage() {
           <FadeIn>
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Meet Our Team</h2>
             <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-              The driving force behind NebulaCode's success is our talented and dedicated team of professionals.
+              The driving force behind KennStack's success is our talented and dedicated team of professionals.
             </p>
           </FadeIn>
         </div>

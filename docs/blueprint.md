@@ -1,4 +1,4 @@
-# **App Name**: NebulaCode
+# **App Name**: KennStack
 
 ## Core Features:
 

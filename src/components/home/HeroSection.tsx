@@ -54,7 +54,7 @@ const HeroSection = () => {
 
         <FadeIn delay={0.4} duration={0.8}>
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-foreground/80 sm:text-xl">
-            NebulaCode translates complex challenges into elegant software solutions. We partner with businesses to innovate, scale, and lead in the digital era.
+            KennStack translates complex challenges into elegant software solutions. We partner with businesses to innovate, scale, and lead in the digital era.
           </p>
         </FadeIn>
 

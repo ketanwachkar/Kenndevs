@@ -16,7 +16,7 @@ const MissionSection = () => {
             Our Mission
           </h2>
           <p className="mt-6 text-lg leading-8 text-foreground/80">
-            At NebulaCode, our mission is to empower businesses with transformative technology. We strive to deliver innovative, reliable, and scalable software solutions that drive growth, efficiency, and competitive advantage for our clients worldwide.
+            At KennStack, our mission is to empower businesses with transformative technology. We strive to deliver innovative, reliable, and scalable software solutions that drive growth, efficiency, and competitive advantage for our clients worldwide.
           </p>
         </FadeIn>
       </div>

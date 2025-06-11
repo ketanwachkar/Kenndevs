@@ -46,7 +46,7 @@ export async function generateMetadata(
 
   return {
     title: post.title,
-    description: `Read the article "${post.title}" on the NebulaCode blog.`,
+    description: `Read the article "${post.title}" on the KennStack blog.`,
     openGraph: {
       images: [post.imageUrl],
     },

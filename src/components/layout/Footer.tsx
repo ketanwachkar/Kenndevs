@@ -46,7 +46,7 @@ const Footer = () => {
               ))}
             </div>
             <p className="text-sm text-foreground/70">
-              <a href="mailto:info@nebulacode.com" className="hover:text-primary">info@nebulacode.com</a>
+              <a href="mailto:info@KennStack.com" className="hover:text-primary">info@KennStack.com</a>
             </p>
             <p className="text-sm text-foreground/70">
               <a href="tel:+1234567890" className="hover:text-primary_">+1 (234) 567-890</a>

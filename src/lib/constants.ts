@@ -30,4 +30,4 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { href: 'https://twitter.com', label: 'Twitter', icon: Twitter },
 ];
 
-export const COMPANY_NAME = "NebulaCode";
+export const COMPANY_NAME = "KennStack";

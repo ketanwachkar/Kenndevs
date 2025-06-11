@@ -10,7 +10,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Our Portfolio',
-  description: 'Explore a selection of our successful projects and case studies, showcasing NebulaCode\'s expertise in delivering impactful software solutions.',
+  description: 'Explore a selection of our successful projects and case studies, showcasing KennStack\'s expertise in delivering impactful software solutions.',
 };
 
 const projects = [

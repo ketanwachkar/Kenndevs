@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Get in touch with NebulaCode. We are here to answer your questions about our software development services and discuss your project needs.',
+  description: 'Get in touch with KennStack. We are here to answer your questions about our software development services and discuss your project needs.',
 };
 
 const ContactInfoItem = ({ icon: Icon, title, children }: { icon: LucideIcon; title: string; children: React.ReactNode }) => (
@@ -46,7 +46,7 @@ export default function ContactPage() {
             <h3 className="text-2xl font-bold mb-6 font-headline text-foreground">Contact Information</h3>
             <div className="space-y-6">
               <ContactInfoItem icon={Mail} title="Email Us">
-                <a href="mailto:hello@nebulacode.com" className="hover:text-primary">hello@nebulacode.com</a>
+                <a href="mailto:hello@KennStack.com" className="hover:text-primary">hello@KennStack.com</a>
               </ContactInfoItem>
               <ContactInfoItem icon={Phone} title="Call Us">
                 <a href="tel:+12345678900" className="hover:text-primary">+1 (234) 567-8900</a>

@@ -4,8 +4,8 @@ import ServiceHighlights from '@/components/home/ServiceHighlights';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'NebulaCode - Innovative Software Solutions',
-  description: 'Welcome to NebulaCode. We build cutting-edge software solutions for web, mobile, cloud, and AI. Discover how we can transform your business.',
+  title: 'KennStack - Innovative Software Solutions',
+  description: 'Welcome to KennStack. We build cutting-edge software solutions for web, mobile, cloud, and AI. Discover how we can transform your business.',
 };
 
 export default function HomePage() {

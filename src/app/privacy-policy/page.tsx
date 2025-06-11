@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Read NebulaCode\'s Privacy Policy to understand how we collect, use, and protect your personal information.',
+  description: 'Read KennStack\'s Privacy Policy to understand how we collect, use, and protect your personal information.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
                          prose-ul:text-foreground/80 prose-li:marker:text-primary">
             <p className="text-sm text-foreground/70">Last updated: July 18, 2024</p>
 
-            <p>NebulaCode ("us", "we", or "our") operates the NebulaCode website (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
+            <p>KennStack ("us", "we", or "our") operates the KennStack website (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
 
             <h2 className="font-headline">Information Collection and Use</h2>
             <p>We collect several different types of information for various purposes to provide and improve our Service to you.</p>
@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
             <p>[Placeholder for Types of Data Collected: Personal Data, Usage Data, Tracking & Cookies Data]</p>
 
             <h2 className="font-headline">Use of Data</h2>
-            <p>NebulaCode uses the collected data for various purposes:</p>
+            <p>KennStack uses the collected data for various purposes:</p>
             <ul>
               <li>To provide and maintain the Service</li>
               <li>To notify you about changes to our Service</li>
@@ -49,8 +49,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="font-headline">Contact Us</h2>
             <p>If you have any questions about this Privacy Policy, please contact us:</p>
             <ul>
-              <li>By email: privacy@nebulacode.com</li>
-              <li>By visiting this page on our website: <a href="/contact">www.nebulacode.com/contact</a></li>
+              <li>By email: privacy@KennStack.com</li>
+              <li>By visiting this page on our website: <a href="/contact">www.KennStack.com/contact</a></li>
             </ul>
           </div>
         </div>

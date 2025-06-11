@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Careers',
-  description: 'Join the NebulaCode team! Explore exciting career opportunities and learn about our company culture.',
+  description: 'Join the KennStack team! Explore exciting career opportunities and learn about our company culture.',
 };
 
 const jobOpenings = [
@@ -54,7 +54,7 @@ export default function CareersPage() {
               Join Our Team
             </h1>
             <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-3xl mx-auto">
-              At NebulaCode, we're building the future of software, and we're looking for talented, passionate individuals to join us on our mission. If you're driven by innovation and thrive in a collaborative environment, we'd love to hear from you.
+              At KennStack, we're building the future of software, and we're looking for talented, passionate individuals to join us on our mission. If you're driven by innovation and thrive in a collaborative environment, we'd love to hear from you.
             </p>
           </FadeIn>
         </div>
@@ -84,7 +84,7 @@ export default function CareersPage() {
           <FadeIn>
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">Current Openings</h2>
             <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-              Find your next challenge and opportunity to grow with NebulaCode.
+              Find your next challenge and opportunity to grow with KennStack.
             </p>
           </FadeIn>
         </div>
@@ -106,7 +106,7 @@ export default function CareersPage() {
           )) : (
             <FadeIn>
               <p className="text-center text-foreground/70 text-lg">
-                We don't have any open positions at the moment, but we're always interested in hearing from talented individuals. Feel free to send your resume to <a href="mailto:careers@nebulacode.com" className="text-primary hover:underline">careers@nebulacode.com</a>.
+                We don't have any open positions at the moment, but we're always interested in hearing from talented individuals. Feel free to send your resume to <a href="mailto:careers@KennStack.com" className="text-primary hover:underline">careers@KennStack.com</a>.
               </p>
             </FadeIn>
           )}
@@ -117,10 +117,10 @@ export default function CareersPage() {
         <FadeIn className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl font-headline">Our Culture</h2>
             <div className="relative aspect-video max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg my-8">
-              <Image src="https://placehold.co/1000x560.png" alt="NebulaCode team working in a vibrant and collaborative modern office environment." layout="fill" objectFit="cover" data-ai-hint="office team" />
+              <Image src="https://placehold.co/1000x560.png" alt="KennStack team working in a vibrant and collaborative modern office environment." layout="fill" objectFit="cover" data-ai-hint="office team" />
             </div>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              We foster a culture of innovation, learning, and mutual respect. At NebulaCode, you'll work with cutting-edge technologies, solve challenging problems, and make a real impact.
+              We foster a culture of innovation, learning, and mutual respect. At KennStack, you'll work with cutting-edge technologies, solve challenging problems, and make a real impact.
             </p>
         </FadeIn>
       </SectionWrapper>

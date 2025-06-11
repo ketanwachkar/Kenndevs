@@ -76,7 +76,7 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
-            NebulaCode offers a comprehensive suite of software development services. We combine technical expertise with creative problem-solving to deliver solutions that drive real business value.
+            KennStack offers a comprehensive suite of software development services. We combine technical expertise with creative problem-solving to deliver solutions that drive real business value.
           </p>
         </FadeIn>
       </div>

@@ -5,13 +5,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'FAQ',
-  description: 'Find answers to frequently asked questions about NebulaCode\'s services, processes, pricing, and more.',
+  description: 'Find answers to frequently asked questions about KennStack\'s services, processes, pricing, and more.',
 };
 
 const faqItems = [
   {
     question: "What types of software development services do you offer?",
-    answer: "NebulaCode offers a wide range_of services including custom web development, mobile app development (iOS & Android), cloud solutions (AWS, Azure, GCP), AI/ML development, UI/UX design, data engineering, cybersecurity, and DevOps automation."
+    answer: "KennStack offers a wide range_of services including custom web development, mobile app development (iOS & Android), cloud solutions (AWS, Azure, GCP), AI/ML development, UI/UX design, data engineering, cybersecurity, and DevOps automation."
   },
   {
     question: "What industries do you specialize in?",
