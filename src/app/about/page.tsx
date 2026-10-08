@@ -1,15 +1,12 @@
 
+"use client";
+
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import FadeIn from '@/components/shared/FadeIn';
+import CyberBackground from '@/components/shared/CyberBackground';
 import Image from 'next/image';
 import { Users, Target, Eye, ShieldCheck, Zap } from 'lucide-react';
 import GlassCard from '@/components/shared/GlassCard';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Learn about KennStack\'s story, mission, vision, and the talented team dedicated to delivering exceptional software solutions.',
-};
 
 const teamMembers = [
   { name: "Alice Johnson", role: "CEO & Founder", imageUrl: "https://placehold.co/400x400.png", altText: "Alice Johnson, CEO and Founder of KennStack", dataAiHint: "woman professional" },

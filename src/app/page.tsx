@@ -14,7 +14,6 @@ export default function HomePage() {
       <HeroSection />
       <MissionSection />
       <ServiceHighlights />
-      {/* Additional sections like Portfolio Highlights, Testimonials can be added here */}
     </>
   );
 }

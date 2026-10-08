@@ -1,85 +1,82 @@
-
 "use client";
 
+import { useState, useEffect } from 'react';
 import AnimatedButton from '@/components/shared/AnimatedButton';
 import FadeIn from '@/components/shared/FadeIn';
-import { ArrowRight, Zap } from 'lucide-react';
-import Image from 'next/image';
+import CyberBackground from '@/components/shared/CyberBackground';
+import BannerTechShowcase from '@/components/home/BannerTechShowcase';
+import { ArrowRight, Zap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const rotatingWords = ["Faster.", "Smarter.", "With AI.", "At Scale."];
 
 const HeroSection = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2400);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="relative isolate overflow-hidden min-h-[calc(100vh-5rem)] flex items-center justify-center py-20">
-      {/* Subtle animated background elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden [mask-image:radial-gradient(closest-side,white,transparent)]">
-        <svg
-          className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-primary/10 "
-          aria-hidden="true"
-        >
-          <defs>
-            <pattern
-              id="e813992c-7d03-4cc4-a2bd-151760b470a0"
-              width={200}
-              height={200}
-              x="50%"
-              y={-1}
-              patternUnits="userSpaceOnUse"
-            >
-              <path d="M100 200V.5M.5 .5H200" fill="none" />
-            </pattern>
-          </defs>
-          <svg x="50%" y={-1} className="overflow-visible fill-accent/5">
-            <path
-              d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-              strokeWidth={0}
-            />
-          </svg>
-          <rect width="100%" height="100%" strokeWidth={0} fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
-        </svg>
-      </div>
+    <div className="relative isolate overflow-hidden min-h-[calc(100vh-5rem)] flex items-center justify-center py-16">
+      <CyberBackground />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        {/* Glowing Theme Badge */}
         <FadeIn yOffset={0} duration={0.8}>
-          <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6 ring-1 ring-inset ring-primary/30">
-            <Zap className="h-4 w-4" />
+          <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6 ring-1 ring-inset ring-primary/30 shadow-lg shadow-primary/20 animate-border-glow">
+            <Zap className="h-4 w-4 animate-pulse text-primary" />
             <span>Powering Digital Transformation</span>
+            <Sparkles className="h-3.5 w-3.5 text-primary" />
           </div>
         </FadeIn>
 
+        {/* Dynamic Theme-Aligned Headline */}
         <FadeIn delay={0.2} duration={0.8}>
-          <h1 className="text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/70 sm:text-7xl lg:text-8xl font-headline">
-            Build Better, <span className="text-primary">Faster</span>.
+          <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-7xl lg:text-8xl font-headline flex flex-wrap justify-center items-center gap-x-3 gap-y-2">
+            <span>Build Better,</span>
+            
+            <span className="inline-block relative min-w-[220px] sm:min-w-[320px] text-left">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={rotatingWords[index]}
+                  initial={{ opacity: 0, y: 20, rotateX: -90 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  exit={{ opacity: 0, y: -20, rotateX: 90 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-300 to-accent drop-shadow-[0_0_25px_rgba(187,134,252,0.5)]"
+                >
+                  {rotatingWords[index]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
           </h1>
         </FadeIn>
 
+        {/* Subtitle */}
         <FadeIn delay={0.4} duration={0.8}>
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-foreground/80 sm:text-xl">
-            KennStack translates complex challenges into elegant software solutions. We partner with businesses to innovate, scale, and lead in the digital era.
+            KennStack translates complex challenges into elegant software solutions. We partner with businesses in <strong className="text-primary font-semibold">Indore, Pune</strong> & globally to innovate, scale, and lead in the digital era.
           </p>
         </FadeIn>
 
+        {/* CTA Buttons */}
         <FadeIn delay={0.6} duration={0.8} className="mt-10 flex items-center justify-center gap-x-6">
           <AnimatedButton href="/services" size="lg" icon={ArrowRight}>
             Explore Services
           </AnimatedButton>
           <Button variant="outline" size="lg" asChild className="text-foreground/80 hover:bg-white/5 hover:border-primary/50 hover:text-primary transition-colors">
-            <a href="/contact">Learn More</a>
+            <a href="/contact">Contact Us</a>
           </Button>
         </FadeIn>
 
-        <FadeIn delay={0.8} duration={1} className="mt-16 sm:mt-24">
-           <div className="relative group aspect-[2/1] w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl shadow-primary/20 glassmorphic">
-            <Image
-                src="https://placehold.co/1200x600.png"
-                alt="Abstract visual representing cutting-edge technology and digital innovation."
-                width={1200}
-                height={600}
-                priority
-                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 opacity-75 group-hover:opacity-100"
-                data-ai-hint="abstract technology"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent"></div>
-          </div>
+        {/* Banner Interactive Operations Hub */}
+        <FadeIn delay={0.8} duration={1} className="mt-12 sm:mt-16">
+          <BannerTechShowcase />
         </FadeIn>
       </div>
     </div>

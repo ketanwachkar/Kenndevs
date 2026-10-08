@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Github, Linkedin, Twitter, Home, Info, Briefcase, Mail, FileText, Users, MessageSquare, BookOpen, Search } from 'lucide-react';
+import { Github, Linkedin, Twitter, Home, Info, Briefcase, Mail, FileText, Users, MessageSquare, BookOpen } from 'lucide-react';
 
 export type NavLink = {
   href: string;

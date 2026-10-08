@@ -1,16 +1,13 @@
 
+"use client";
+
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import FadeIn from '@/components/shared/FadeIn';
 import GlassCard from '@/components/shared/GlassCard';
 import AnimatedButton from '@/components/shared/AnimatedButton';
+import CyberBackground from '@/components/shared/CyberBackground';
 import Image from 'next/image';
 import { Briefcase, Users, Coffee, ArrowRight, Zap } from 'lucide-react';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Careers',
-  description: 'Join the KennStack team! Explore exciting career opportunities and learn about our company culture.',
-};
 
 const jobOpenings = [
   {
@@ -73,10 +70,9 @@ export default function CareersPage() {
                 </div>
                 <h3 className="text-lg font-semibold font-headline text-foreground">{perk.title}</h3>
               </GlassCard>
-            </FadeIn>
-          ))}
-        </div>
-      </FadeIn>
+            ))}
+          </div>
+        </FadeIn>
       </SectionWrapper>
 
       <SectionWrapper className="bg-background/30">

@@ -1,65 +1,94 @@
+"use client";
+
 import SectionWrapper from '@/components/shared/SectionWrapper';
 import ContactForm from '@/components/contact/ContactForm';
 import SocialLinks from '@/components/contact/SocialLinks';
 import FadeIn from '@/components/shared/FadeIn';
-import { Mail, Phone, MapPin } from 'lucide-react';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with KennStack. We are here to answer your questions about our software development services and discuss your project needs.',
-};
+import CyberBackground from '@/components/shared/CyberBackground';
+import GlobalPresenceMap from '@/components/contact/GlobalPresenceMap';
+import { Mail, Phone, MapPin, MessageSquare, type LucideIcon, Sparkles, Building2 } from 'lucide-react';
 
 const ContactInfoItem = ({ icon: Icon, title, children }: { icon: LucideIcon; title: string; children: React.ReactNode }) => (
   <div className="flex items-start space-x-4">
-    <div className="flex-shrink-0 mt-1 p-2 bg-primary/10 rounded-full ring-1 ring-inset ring-primary/30">
+    <div className="flex-shrink-0 mt-1 p-2.5 bg-primary/10 rounded-xl ring-1 ring-inset ring-primary/30">
       <Icon className="h-5 w-5 text-primary" />
     </div>
     <div>
-      <h4 className="text-lg font-semibold text-foreground">{title}</h4>
-      <div className="text-foreground/70">{children}</div>
+      <h4 className="text-base font-bold text-foreground font-headline">{title}</h4>
+      <div className="text-foreground/75 text-sm leading-relaxed mt-0.5">{children}</div>
     </div>
   </div>
 );
 
 export default function ContactPage() {
   return (
-    <SectionWrapper>
-      <div className="text-center mb-16">
-        <FadeIn>
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
-            Let's Connect
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
-            Have a project in mind, a question about our services, or just want to say hello? We'd love to hear from you.
-          </p>
-        </FadeIn>
-      </div>
+    <div className="relative">
+      <CyberBackground />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <FadeIn delay={0.1}>
-          <ContactForm />
-        </FadeIn>
-        
-        <FadeIn delay={0.2} className="space-y-8">
-          <div className="p-6 rounded-lg bg-background/50 border border-white/10">
-            <h3 className="text-2xl font-bold mb-6 font-headline text-foreground">Contact Information</h3>
-            <div className="space-y-6">
-              <ContactInfoItem icon={Mail} title="Email Us">
-                <a href="mailto:hello@KennStack.com" className="hover:text-primary">hello@KennStack.com</a>
-              </ContactInfoItem>
-              <ContactInfoItem icon={Phone} title="Call Us">
-                <a href="tel:+12345678900" className="hover:text-primary">+1 (234) 567-8900</a>
-              </ContactInfoItem>
-              <ContactInfoItem icon={MapPin} title="Our Office">
-                123 Innovation Drive, Tech City, TX 75001, USA <br />
-                (Visits by appointment only)
-              </ContactInfoItem>
+      <SectionWrapper>
+        {/* Page Header */}
+        <div className="text-center mb-16">
+          <FadeIn>
+            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-4 ring-1 ring-inset ring-primary/30">
+              <MessageSquare className="h-4 w-4 text-primary" />
+              <span>Direct Engineering & Consultation Access</span>
             </div>
-          </div>
-          <SocialLinks />
-        </FadeIn>
-      </div>
-    </SectionWrapper>
+
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-headline">
+              Let's <span className="text-primary">Connect</span>
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
+              Have a complex software challenge, cloud migration inquiry, or AI project? Reach out directly to our engineering leadership in <strong className="text-primary font-semibold">Indore</strong> and <strong className="text-primary font-semibold">Pune</strong>.
+            </p>
+          </FadeIn>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left Side: Contact Form */}
+          <FadeIn delay={0.1}>
+            <ContactForm />
+          </FadeIn>
+          
+          {/* Right Side: Contact Info & Interactive Global Map */}
+          <FadeIn delay={0.2} className="space-y-8">
+            <div className="p-8 rounded-2xl bg-card/60 backdrop-blur-xl border border-white/10 shadow-2xl space-y-6">
+              <h3 className="text-2xl font-bold font-headline text-foreground flex items-center gap-2">
+                <span>Contact Information</span>
+                <Sparkles className="h-4 w-4 text-primary" />
+              </h3>
+
+              <div className="space-y-6">
+                <ContactInfoItem icon={Mail} title="Direct Email Support">
+                  <a href="mailto:ketanwachar2000@gmail.com" className="hover:text-primary transition-colors font-mono font-semibold text-primary">
+                    ketanwachar2000@gmail.com
+                  </a>
+                </ContactInfoItem>
+
+                <ContactInfoItem icon={Phone} title="Direct Phone Hotline">
+                  <a href="tel:+919876543210" className="hover:text-primary transition-colors font-mono">
+                    +91 98765 43210 / +1 (234) 567-8900
+                  </a>
+                </ContactInfoItem>
+
+                <ContactInfoItem icon={Building2} title="Indore Headquarters (India)">
+                  Crystal IT Park, Ring Road / Khandwa Road,<br />
+                  Indore, Madhya Pradesh 452001, India
+                </ContactInfoItem>
+
+                <ContactInfoItem icon={MapPin} title="Pune Technology Hub (India)">
+                  World Trade Center, Kharadi & Baner IT Park,<br />
+                  Pune, Maharashtra 411014, India
+                </ContactInfoItem>
+              </div>
+            </div>
+
+            {/* Global Operations & Office Locations Map */}
+            <GlobalPresenceMap />
+
+            <SocialLinks />
+          </FadeIn>
+        </div>
+      </SectionWrapper>
+    </div>
   );
 }
