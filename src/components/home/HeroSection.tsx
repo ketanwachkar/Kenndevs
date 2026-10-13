@@ -60,16 +60,16 @@ const HeroSection = () => {
         {/* Subtitle */}
         <FadeIn delay={0.4} duration={0.8}>
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-foreground/80 sm:text-xl">
-            KennStack translates complex challenges into elegant software solutions. We partner with businesses in <strong className="text-primary font-semibold">Indore, Pune</strong> & globally to innovate, scale, and lead in the digital era.
+            KennStack translates complex challenges into elegant software solutions. We partner with businesses in <strong className="text-primary font-semibold">Pune</strong> & globally to innovate, scale, and lead in the digital era.
           </p>
         </FadeIn>
 
         {/* CTA Buttons */}
-        <FadeIn delay={0.6} duration={0.8} className="mt-10 flex items-center justify-center gap-x-6">
-          <AnimatedButton href="/services" size="lg" icon={ArrowRight}>
+        <FadeIn delay={0.6} duration={0.8} className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-x-6 w-full max-w-xs mx-auto sm:max-w-none">
+          <AnimatedButton href="/services" size="lg" icon={ArrowRight} className="w-full sm:w-auto whitespace-nowrap px-5 sm:px-8">
             Explore Services
           </AnimatedButton>
-          <Button variant="outline" size="lg" asChild className="text-foreground/80 hover:bg-white/5 hover:border-primary/50 hover:text-primary transition-colors">
+          <Button variant="outline" size="lg" asChild className="w-full sm:w-auto whitespace-nowrap text-foreground/80 hover:bg-white/5 hover:border-primary/50 hover:text-primary transition-colors">
             <a href="/contact">Contact Us</a>
           </Button>
         </FadeIn>

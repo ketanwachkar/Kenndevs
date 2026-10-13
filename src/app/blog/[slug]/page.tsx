@@ -75,7 +75,7 @@ const postsData: Record<string, PostArticle> = {
       <h2 class="text-2xl font-bold my-6 text-foreground font-headline flex items-center gap-2">
         <span class="text-primary">02.</span> Serverless & Multi-Region Mesh
       </h2>
-      <p>Modern applications leverage global edge nodes to execute server actions within single-digit milliseconds of the user, whether in Indore, Pune, San Francisco, or Tokyo.</p>
+      <p>Modern applications leverage global edge nodes to execute server actions within single-digit milliseconds of the user, whether in Pune, San Francisco, or Tokyo.</p>
     `
   },
   "demystifying-cloud-native": {

@@ -6,7 +6,7 @@ import SocialLinks from '@/components/contact/SocialLinks';
 import FadeIn from '@/components/shared/FadeIn';
 import CyberBackground from '@/components/shared/CyberBackground';
 import GlobalPresenceMap from '@/components/contact/GlobalPresenceMap';
-import { Mail, Phone, MapPin, MessageSquare, type LucideIcon, Sparkles, Building2 } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, type LucideIcon, Sparkles } from 'lucide-react';
 
 const ContactInfoItem = ({ icon: Icon, title, children }: { icon: LucideIcon; title: string; children: React.ReactNode }) => (
   <div className="flex items-start space-x-4">
@@ -38,7 +38,7 @@ export default function ContactPage() {
               Let's <span className="text-primary">Connect</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
-              Have a complex software challenge, cloud migration inquiry, or AI project? Reach out directly to our engineering leadership in <strong className="text-primary font-semibold">Indore</strong> and <strong className="text-primary font-semibold">Pune</strong>.
+              Have a complex software challenge, cloud migration inquiry, or AI project? Reach out directly to our engineering leadership in <strong className="text-primary font-semibold">Pune</strong>.
             </p>
           </FadeIn>
         </div>
@@ -65,14 +65,9 @@ export default function ContactPage() {
                 </ContactInfoItem>
 
                 <ContactInfoItem icon={Phone} title="Direct Phone Hotline">
-                  <a href="tel:+919876543210" className="hover:text-primary transition-colors font-mono">
-                    +91 98765 43210 / +1 (234) 567-8900
+                  <a href="tel:+919039904938" className="hover:text-primary transition-colors font-mono">
+                    +91 90399 04938
                   </a>
-                </ContactInfoItem>
-
-                <ContactInfoItem icon={Building2} title="Indore Headquarters (India)">
-                  Crystal IT Park, Ring Road / Khandwa Road,<br />
-                  Indore, Madhya Pradesh 452001, India
                 </ContactInfoItem>
 
                 <ContactInfoItem icon={MapPin} title="Pune Technology Hub (India)">

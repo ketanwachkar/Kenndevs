@@ -31,7 +31,7 @@ const AnimatedButton = ({
 }: AnimatedButtonProps) => {
   const calculatedButtonClasses = cn(
     "relative overflow-hidden group rounded-lg text-sm font-medium transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/80 cursor-pointer select-none",
-    "inline-flex items-center justify-center border border-primary/40",
+    "inline-flex items-center justify-center whitespace-nowrap border border-primary/40",
     "bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground shadow-lg shadow-primary/20",
     size === 'sm' && 'px-3 py-1.5 text-xs',
     size === 'lg' && 'px-8 py-3 text-base font-semibold',
@@ -42,9 +42,9 @@ const AnimatedButton = ({
 
   const buttonContent = (
     <>
-      {Icon && iconPosition === 'left' && <Icon className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-0.5" />}
-      <span>{children}</span>
-      {Icon && iconPosition === 'right' && <Icon className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />}
+      {Icon && iconPosition === 'left' && <Icon className="mr-2 h-4 w-4 shrink-0 transition-transform group-hover:-translate-x-0.5" />}
+      <span className="whitespace-nowrap">{children}</span>
+      {Icon && iconPosition === 'right' && <Icon className="ml-2 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />}
     </>
   );
 

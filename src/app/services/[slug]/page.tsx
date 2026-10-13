@@ -330,7 +330,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <div className="p-8 rounded-3xl bg-gradient-to-r from-primary/20 via-accent/20 to-card border border-primary/40 text-center space-y-4 shadow-2xl">
               <h3 className="text-2xl font-bold text-foreground font-headline">Ready to build your next product with {service.title}?</h3>
               <p className="text-sm text-foreground/80 max-w-lg mx-auto">
-                Consult with our senior solution architects in Indore & Pune to prototype your architecture.
+                Consult with our senior solution architects in Pune to prototype your architecture.
               </p>
               <Button size="lg" asChild className="bg-primary hover:bg-accent text-primary-foreground font-semibold shadow-lg shadow-primary/25">
                 <Link href="/contact" className="flex items-center gap-2">

@@ -228,7 +228,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
             <div className="p-8 rounded-3xl bg-gradient-to-r from-primary/20 via-accent/20 to-card border border-primary/40 text-center space-y-4 shadow-2xl">
               <h3 className="text-2xl font-bold text-foreground font-headline">Want similar outcomes for your enterprise?</h3>
               <p className="text-sm text-foreground/80 max-w-lg mx-auto">
-                Our engineering teams in Indore & Pune build resilient software solutions customized for scale.
+                Our engineering team in Pune builds resilient software solutions customized for scale.
               </p>
               <Button size="lg" asChild className="bg-primary hover:bg-accent text-primary-foreground font-semibold shadow-lg shadow-primary/25">
                 <Link href="/contact" className="flex items-center gap-2">

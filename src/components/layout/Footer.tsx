@@ -38,12 +38,8 @@ const Footer = () => {
 
           {/* Col 3: Office Locations */}
           <div>
-            <h3 className="text-lg font-headline font-semibold text-foreground mb-4">Our Offices (India)</h3>
+            <h3 className="text-lg font-headline font-semibold text-foreground mb-4">Our Office (India)</h3>
             <div className="space-y-3 text-xs text-foreground/70 leading-relaxed">
-              <div>
-                <strong className="text-primary block">Indore (HQ):</strong>
-                Crystal IT Park, Khandwa Road, Indore, MP 452001
-              </div>
               <div>
                 <strong className="text-cyan-400 block">Pune Tech Hub:</strong>
                 World Trade Center, Kharadi / Baner IT Park, Pune, MH 411014
@@ -69,7 +65,7 @@ const Footer = () => {
             </p>
             <p className="text-sm text-foreground/70 font-mono flex items-center gap-1.5">
               <Phone className="h-3.5 w-3.5 text-emerald-400" />
-              <a href="tel:+919876543210" className="hover:text-primary">+91 98765 43210</a>
+              <a href="tel:+919039904938" className="hover:text-primary">+91 90399 04938</a>
             </p>
           </div>
         </div>

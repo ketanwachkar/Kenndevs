@@ -14,7 +14,6 @@ interface NodeLocation {
 }
 
 const locations: NodeLocation[] = [
-  { city: "Indore (HQ)", stateCountry: "MP, India", ping: 4, status: "Primary Development HQ", isPrimaryOffice: true, address: "Crystal IT Park, Khandwa Road, Indore, MP 452001", coords: { x: 70, y: 48 } },
   { city: "Pune Hub", stateCountry: "Maharashtra, India", ping: 8, status: "Engineering & Innovation Hub", isPrimaryOffice: true, address: "World Trade Center, Kharadi / Baner IT Park, Pune, MH 411014", coords: { x: 68, y: 52 } },
   { city: "San Francisco", stateCountry: "USA (West)", ping: 140, status: "US Enterprise Gateway", address: "Market St, San Francisco, CA", coords: { x: 18, y: 38 } },
   { city: "London", stateCountry: "UK (Europe)", ping: 110, status: "EU Cloud Datacenter", address: "Tech City, London, UK", coords: { x: 52, y: 28 } },
@@ -42,13 +41,13 @@ export default function GlobalPresenceMap() {
           </div>
           <div>
             <h4 className="text-base font-bold text-foreground font-headline">Office Locations & Server Hubs</h4>
-            <p className="text-xs text-muted-foreground">Indore (HQ) • Pune Hub • Global Operations</p>
+            <p className="text-xs text-muted-foreground">Pune Hub • Global Operations</p>
           </div>
         </div>
 
         <div className="hidden sm:flex items-center space-x-2 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 text-xs font-mono text-emerald-400">
           <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-          <span>INDIAN HQ ACTIVE</span>
+          <span>PUNE HUB ACTIVE</span>
         </div>
       </div>
 
@@ -97,16 +96,12 @@ export default function GlobalPresenceMap() {
       </div>
 
       {/* Office Badges Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono">
-        <div className="p-3 rounded-xl bg-white/5 border border-primary/30 flex flex-col justify-between">
-          <div className="text-primary font-bold text-sm">Indore HQ</div>
-          <div className="text-[11px] text-muted-foreground mt-1">Crystal IT Park, MP</div>
-        </div>
+      <div className="grid grid-cols-2 gap-3 text-xs font-mono">
         <div className="p-3 rounded-xl bg-white/5 border border-cyan-500/30 flex flex-col justify-between">
           <div className="text-cyan-400 font-bold text-sm">Pune Hub</div>
           <div className="text-[11px] text-muted-foreground mt-1">WTC / Baner Park, MH</div>
         </div>
-        <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between col-span-2 sm:col-span-1">
+        <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
           <div className="text-emerald-400 font-bold text-sm">Direct Email</div>
           <div className="text-[11px] text-muted-foreground mt-1 truncate">ketanwachar2000@gmail.com</div>
         </div>
